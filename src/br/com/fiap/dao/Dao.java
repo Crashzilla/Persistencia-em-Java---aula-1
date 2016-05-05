@@ -1,6 +1,7 @@
 package br.com.fiap.dao;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -12,8 +13,9 @@ public class Dao {
 	
 	private String url = "jdbc:mysql://localhost:3306/vendas";
 	
-	protected void abrirConexao(){
+	protected void abrirConexao() throws Exception{
 		Class.forName("com.mysql.jdbc.Driver");
+		cn = DriverManager.getConnection(url, "root", "fiap");
 	}
 	
 }
