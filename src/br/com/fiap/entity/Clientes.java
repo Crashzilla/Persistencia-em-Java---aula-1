@@ -35,4 +35,9 @@ public class Clientes implements Serializable {
 	public void setPedidos(List<Pedidos> pedidos) {
 		this.pedidos = pedidos;
 	}
+	@Override
+	public String toString() {
+		return this.getNome();
+	}
+	
 }

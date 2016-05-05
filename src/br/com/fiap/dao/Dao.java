@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class Dao {
+public abstract class Dao {
 	
 	protected Connection cn;
 	protected PreparedStatement stmt;
@@ -16,6 +16,12 @@ public class Dao {
 	protected void abrirConexao() throws Exception{
 		Class.forName("com.mysql.jdbc.Driver");
 		cn = DriverManager.getConnection(url, "root", "fiap");
+	}
+	
+	protected void fecharConexao() throws Exception{
+		if (cn != null && cn.isClosed()){
+			cn.close();
+		}
 	}
 	
 }
